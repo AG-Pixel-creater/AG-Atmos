@@ -1,0 +1,19 @@
+{
+  "name": "AG Atmos",
+  "short_name": "AG Atmos",
+  "description": "A practical, data-focused weather dashboard for current conditions, rain windows, commute planning, UV, air quality, and radar.",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#071018",
+  "theme_color": "#0f172a",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "assets/icons/icon.ico",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

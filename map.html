@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="description" content="AG Atmos weather map with supported precipitation radar overlay.">
+    <title>AG Atmos Map</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/icons/icon.ico" type="image/svg+xml">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/map.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/map.js" defer></script>
+  </head>
+  <body>
+    <div class="map-shell">
+      <header class="site-header map-header">
+        <a class="brand" href="index.html" aria-label="AG Atmos home">
+          <span class="brand-mark">AG</span>
+          <span>
+            <strong>AG Atmos</strong>
+            <small data-i18n="mapLabel">Weather map</small>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Primary">
+          <a href="index.html" data-i18n="navWeather">Weather</a>
+          <a href="map.html" aria-current="page" data-i18n="navMap">Map</a>
+        </nav>
+        <div class="header-controls">
+          <select id="language-select" class="control-select" aria-label="Language">
+            <option value="en">English</option>
+            <option value="ur">اردو</option>
+          </select>
+          <select id="theme-select" class="control-select" aria-label="Theme">
+            <option value="system" data-i18n="themeSystem">System</option>
+            <option value="dark" data-i18n="themeDark">Dark</option>
+            <option value="light" data-i18n="themeLight">Light</option>
+          </select>
+        </div>
+      </header>
+
+      <main class="map-main">
+        <aside class="map-panel" aria-labelledby="map-controls-title">
+          <p class="eyebrow" data-i18n="layers">Layers</p>
+          <h1 id="map-controls-title" data-i18n="weatherLayers">Weather layers</h1>
+          <p id="map-location" class="muted" data-i18n="loading">Loading...</p>
+          <div class="layer-list">
+            <label><input type="checkbox" id="layer-precipitation" checked> <span data-i18n="precipitation">Precipitation</span></label>
+          </div>
+          <p id="radar-time" class="muted radar-time" aria-live="polite"></p>
+          <p class="muted radar-note" data-i18n="radarCoverage">Radar coverage varies by region. An empty overlay does not confirm dry weather.</p>
+          <div class="map-actions">
+            <button type="button" id="map-current-location" class="button primary" data-i18n="useCurrentLocation">Use current</button>
+            <a href="index.html" class="button secondary" data-i18n="backToDashboard">Back to dashboard</a>
+          </div>
+          <div id="map-status" class="status-panel" aria-live="polite"></div>
+        </aside>
+        <section class="map-stage" aria-label="Interactive weather map">
+          <div id="weather-map"></div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
